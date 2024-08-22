@@ -21,7 +21,7 @@ Note: lynbidl-mmlab-v1.3.0 is not being able to open source due to commercial in
 
 ## How to run a demo
 
-Download the source_code_v2.zip, and unzip the file anywhere on your computer. A folder 'source_code_v2' would generate. Enter the 'source_code_v2' folder and then open a terminal at the folder path. Then choose one of the following modes to run a demo, which would take typically less than 30 seconds to automatically build and start to inference. The spatiotemporal classification results of all particles would be displayed one by one on the terminal console, which would probably need less than 5 minutes. 
+Download the zip file or git clone the whole repo anywhere on your computer. A folder 'NEVACS' would generate. Enter the 'NEVACS' folder and then open a terminal at the folder path. Then choose one of the following modes to run a demo, which would take typically less than 30 seconds to automatically build and start to inference. The spatiotemporal classification results of all particles would be displayed one by one on the terminal console, which would probably need less than 5 minutes. 
 
 #### Run a demo with neuromorphic chip
 
@@ -43,7 +43,7 @@ Expected output: 1. The trained and deployed SNN classification under the 'confi
 
 ## Run on your own data
 
-Use your own event image data saved in the format of '.png' or '.jpg' to replace all the files in the 'source_code_v2/data/cell-dataset/' folder. The training data should be put under the 'source_code_v2/data/cell-dataset/train/' folder, while the test data should be put under the 'source_code_v2/data/cell-dataset/test/' folder. Then follow the operation below. 
+Use your own event image data saved in the format of '.png' or '.jpg' to replace all the files in the 'data/cell-dataset/' folder. The training data should be put under the 'data/cell-dataset/train/' folder, while the test data should be put under the 'data/cell-dataset/test/' folder. Then follow the operation below. 
 
 #### Training the SNN classification model with GPU
 
