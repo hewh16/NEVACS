@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 2.6)
+
+project("deepsort")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+set(THREADS_HAVE_PTHREAD_ARG 1)
+
+# Try to find OpenCV
+find_package(OpenCV REQUIRED)
+find_package(Threads REQUIRED)
+find_package(PkgConfig)
+pkg_check_modules(SERIAL libserial)
+if (OpenCV_FOUND)
+    # If the package has been found, several variables will
+    # be set, you can find the full list with descriptions
+    # in the OpenCVConfig.cmake file.
+    # Print some message showing some of them
+    message(STATUS "OpenCV library status:")
+    message(STATUS "    version: ${OpenCV_VERSION}")
+    message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+else ()
+    message(FATAL_ERROR "Could not locate OpenCV")
+endif()
+
+include_directories(/usr/include/eigen3)
+include_directories(${PROJECT_SOURCE_DIR} ./KalmanFilter ./DeepAppearanceDescriptor ./MunkresAssignment ./MunkresAssignment/munkres)
+
+file(GLOB SOURCE_FILES "./KalmanFilter/*.cpp" "./DeepAppearanceDescriptor/*.cpp" "./MunkresAssignment/*.cpp" "./MunkresAssignment/munkres/*.cpp" )
+
+message(STATUS "source files ${SOURCE_FILES}")
+add_library(deepsort ${SOURCE_FILES} track_deepsort.cpp)
+
+target_link_libraries(deepsort  /usr/lib/x86_64-linux-gnu/libuuid.so)
+target_link_libraries (deepsort ${OpenCV_LIBS})
+target_include_directories(deepsort ${SERIAL_INCLUDE_DIRS})
+target_link_libraries(deepsort ${SERIAL_LDFLAGS} ${CMAKE_THREAD_LIBS_INIT})
+
+
+add_definitions(-O2 -pthread)
