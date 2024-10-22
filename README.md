@@ -17,7 +17,7 @@ Linux: Ubuntu 20.04
 
 NEVACS requires and has been tested on OpenCV 3.3.0, OpenEB 3.1.0, Python 3.6, PyTorch 1.9.0, lynbidl-mmlab-v1.3.0, mmcv 1.5.0
 
-Note: lynbidl-mmlab-v1.3.0 is not being able to open source due to commercial interests, please purchase the software from Lynxi Technologies Co., Ltd., and install it according to the included guide from Lynxi.
+Note: The software package lynbidl-mmlab-v1.3.0 is owned by Lynxi Technologies Co., Ltd, which is not willing to make it open source due to commercial interests. So, if anyone wants to fully run the code on github, please purchase the software package from Lynxi and install it correctly.
 
 ## How to run a demo
 
